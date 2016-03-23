@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>ShapeBootstrap Clean Template</title>
+  <title><?php echo $genre." books"; ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
 
 	
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>assets/css/bootstrap.css" rel="stylesheet">
+	<link href="<?php echo base_url();?>assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
@@ -18,18 +18,18 @@
   <![endif]-->
 
   <!-- Fav and touch icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
-  <link rel="shortcut icon" href="img/favicon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url();?>assets/img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url();?>assets/img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url();?>assets/img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="<?php echo base_url();?>assets/img/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/favicon.png">
   
 
 
     <!-- SCRIPT 
     ============================================================-->  
     <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -40,35 +40,69 @@
     <div class="container">
       <div class="row">
               <!--LOGO-->
-              <div class="span3"><a class="brand" href="#"><img src="img/logo.png"/></a></div>
+              <div class="span3"><a class="brand" href="<?php echo base_url();?>"><img src="<?php echo base_url();?>assets/img/logo.png"/></a></div>
               <!-- /LOGO -->
 
             <!-- MAIN NAVIGATION -->  
-              <div class="span9">
-                <div class="navbar  pull-right">
-                  <div class="navbar-inner">
+              <div class="span9 ">
+                <div class="navbar ">
+                  <div class="navbar-inner ">
                     <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-                    <div class="nav-collapse collapse navbar-responsive-collapse">
+                    <div class="nav-collapse collapse navbar-responsive-collapse ">
                     <ul class="nav">
                         <li class="active"><a href="index.html">Home</a></li>
-                        
+                        <li><a href="service.html">My Books</a></li>
                         <li class="dropdown">
-                          <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                          <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                  <li><a href="about.html">Company</a></li>
-                                  <li><a href="about.html">History</a></li>
-                                  <li><a href="about.html">Team</a></li>
+                                  <li><a href="application/views/about.html">Art</a></li>
+                                  <li><a href="application/views/about.html">Biography</a></li>
+                                  <li><a href="application/views/about.html">Business</a></li>
+                                  <li><a href="application/views/about.html">Chick Lit</a></li>
+                                  <li><a href="application/views/about.html">Children's</a></li>
+                                  <li><a href="application/views/about.html">Christian</a></li>
+                                  <li><a href="application/views/about.html">Classics</a></li>
+                                  <li><a href="application/views/about.html">Comics</a></li>
+                                  <li><a href="application/views/about.html">Contemporary</a></li>
+                                  <li><a href="application/views/about.html">Cookbooks</a></li>
+                                  <li><a href="application/views/about.html">Crime</a></li>
+                                  <li><a href="application/views/about.html">Ebooks</a></li>
+                                  <li><a href="application/views/about.html">Fantasy</a></li>
+                                  <li><a href="<?php echo base_url();?>index.php/home/genre/Fiction">Fiction</a></li>
+                                  <li><a href="application/views/about.html">Gay and Lesbian</a></li>
                             </ul>
 
                         </li>
-
-                        <li><a href="service.html">Services</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        
+                        <li>
+                            <form class="navbar-form" role="search">
+                                <div class="input-group add-on">
+                                  <input class="form-control" placeholder="Search books" name="srch-term" id="srch-term" type="text">
+                              
+                                    <button class="btn btn-small" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                  
+                               </div>
+                            </form>
+                        </li>
+<!--<li>
+                        <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" placeholder="Search books" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+</li>-->
+                        <li><a href="<?php echo base_url();?>application/views/signup.html">Login/Sign up</a></li>
+                         <!--<li><a href="application/views/signup.html">Sign up</a></li>--> 
                  
                     </ul>
+  
                   </div>
-
+                        
                   </div>
                 </div>
               </div>
@@ -88,7 +122,7 @@
 		<div class="span12">
 		<div class="page-header">
 				<h1>
-				Services
+				<?php echo $genre; ?> books
 			</h1>
 		</div>
 		</div>
@@ -97,105 +131,21 @@
   <!-- /. PAGE TITLE-->
 
 	<div class="row">
+            <?php foreach ($bookdetails as $book_item): ?>
 		<div class="span6">
 		<div class="media">
-				 <a href="#" class="pull-left"><img src="img/icon-service1.png" class="media-object" alt='' /></a>
+				 <a href="#" class="pull-left"><img src="<?php echo base_url().$book_item['coverimagepath'];?>" class="media-object" alt='' /></a>
 				<div class="media-body">
 					<h4 class="media-heading">
-						Nested media heading
+						<?php echo $book_item['title'];?>
 					</h4> 
-					<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.	
+					<p><?php echo "Rating : ".$book_item['rating'];?>
 					</p>
-					<a href="#" class="btn" type="button">Button</a>
-
-
+					<a href="#" class="btn" type="button" onclick="">View book</a>
 				</div>
 			</div>
 		</div>			
-
-
-		<div class="span6">
-
-		<div class="media">
-				 <a href="#" class="pull-left"><img src="img/icon-service2.png" class="media-object" alt='' /></a>
-				<div class="media-body">
-					<h4 class="media-heading">
-						Nested media heading
-					</h4> 
-					<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-					</p>
-					<a href="#" class="btn" type="button">Button</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="span6">
-		<div class="media">
-				 <a href="#" class="pull-left"><img src="img/icon-service3.png" class="media-object" alt='' /></a>
-				<div class="media-body">
-					<h4 class="media-heading">
-						Nested media heading
-					</h4> 
-					<p>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-					</p>
-					<a href="#" class="btn" type="button">Button</a>
-				</div>
-			</div>
-		</div>
-
-
-		
-		<div class="span6">
-		<div class="media">
-				 <a href="#" class="pull-left"><img src="img/icon-service4.png" class="media-object" alt='' /></a>
-				<div class="media-body">
-					<h4 class="media-heading">
-						Nested media heading
-					</h4> 
-					<p>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-					</p>
-					<a href="#" class="btn" type="button">Button</a>
-				</div>
-			</div>
-
-
-		</div>		
-
-		<div class="span6">
-		<div class="media">
-				 <a href="#" class="pull-left"><img src="img/icon-service5.png" class="media-object" alt='' /></a>
-				<div class="media-body">
-					<h4 class="media-heading">
-						Nested media heading
-					</h4> 
-					<p>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-					</p>
-					<a href="#" class="btn" type="button">Button</a>
-				</div>
-			</div>
-
-
-		</div>		
-
-		<div class="span6">
-		<div class="media">
-				 <a href="#" class="pull-left"><img src="img/icon-service6.png" class="media-object" alt='' /></a>
-				<div class="media-body">
-					<h4 class="media-heading">
-						Nested media heading
-					</h4> 
-					<p>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-					</p>
-					<a href="#" class="btn" type="button">Button</a>
-				</div>
-			</div>
-
-
-		</div>
+            <?php endforeach; ?>
 
 	</div>
 </div>
@@ -213,11 +163,11 @@
         </div>
         <div class="span6">
             <div class="social pull-right">
-                <a href="#"><img src="img/social/googleplus.png" alt=""></a>
-                <a href="#"><img src="img/social/dribbble.png" alt=""></a>
-                <a href="#"><img src="img/social/twitter.png" alt=""></a>
-                <a href="#"><img src="img/social/dribbble.png" alt=""></a>
-                <a href="#"><img src="img/social/rss.png" alt=""></a>
+                <a href="#"><img src="<? php echo base_url();?>assets/img/social/googleplus.png" alt=""></a>
+                <a href="#"><img src="<? php echo base_url();?>assets/img/social/dribbble.png" alt=""></a>
+                <a href="#"><img src="<? php echo base_url();?>assets/img/social/twitter.png" alt=""></a>
+                <a href="#"><img src="<? php echo base_url();?>assets/img/social/dribbble.png" alt=""></a>
+                <a href="#"><img src="<? php echo base_url();?>assets/img/social/rss.png" alt=""></a>
             </div>
         </div>
       </div>
