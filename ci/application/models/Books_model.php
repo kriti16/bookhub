@@ -43,7 +43,7 @@ class Books_model extends CI_Model {
                 }
                 $this->db->select("*");
                 $this->db->from("bookdetails");
-                $this->db->where('title',$title);
+                $this->db->like('title',$title);
                 $query = $this->db->get();
                 return $query->result_array();
         }
