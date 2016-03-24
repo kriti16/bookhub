@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title><?php echo $genre." books"; ?></title>
+  <title><?php echo $authorinfo[0]['name']; ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -25,7 +25,6 @@
   <link rel="apple-touch-icon-precomposed" href="<?php echo base_url();?>assets/img/apple-touch-icon-57-precomposed.png">
   <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/favicon.png">
   
-
 
     <!-- SCRIPT 
     ============================================================-->  
@@ -113,42 +112,64 @@
 
 
 
+
+
 <div class="container">
-	  <!--PAGE TITLE-->
+
+  <!--PAGE TITLE-->
 
 	<div class="row">
 		<div class="span12">
 		<div class="page-header">
+
 				<h1>
-				<?php echo $genre; ?> books
+				<?php echo $authorinfo[0]['name']; ?>
 			</h1>
 		</div>
+
 		</div>
 	</div>
 
   <!-- /. PAGE TITLE-->
+  	<div class="row">
+	  <div class="span12">
+	  <!--<h2>Welcome to Fornax</h2>-->
+
+	
+			<img class="pull-left" alt="" src="<?php echo base_url().$authorinfo[0]['coverimagepath'];?>" />
+      <p>Birth Place :<?php echo $authorinfo[0]['birth_place'];?></p>
+      <p>Birth Date :<?php echo $authorinfo[0]['birth_date'];?></p>
+			<p><?php echo $authorinfo[0]['intro'];?>
+                        </p>
+                        
+	  </div>
+	 </div>
+
+	 <div class="hr-divider"></div>
 
 	<div class="row">
-            <?php foreach ($bookdetails as $book_item): ?>
-		<div class="span6">
-		<div class="media">
-				 <a href="#" class="pull-left"><img src="<?php echo base_url().$book_item['coverimagepath'];?>" class="media-object" alt='' /></a>
-				<div class="media-body">
-					<h4 class="media-heading">
-						<?php echo $book_item['title'];?>
-					</h4> 
-                                    <a href="<?php echo base_url().'index.php/home/author_info/'.$book_item['author'];?>"><?php echo 'Author : '.$book_item['author'];?></a>
-					<p><?php echo "Rating : ".$book_item['rating'];?>
-					</p>
-					<a href="<?php echo base_url().'index.php/home/book_info/'.$book_item['isbn'];?>" class="btn" type="button">View book</a>
-				</div>
-			</div>
-		</div>			
-            <?php endforeach; ?>
+		<div class="span12">
 
+		<h2><?php echo $authorinfo[0]['name']?>'s Books:</h2>
+			<ul class="thumbnails">
+        <?php foreach ($authorbooks as $book): ?>
+				<li class="span4">
+					<div class="thumbnail">
+						<img alt="" src="<?php echo base_url().$book['coverimagepath']; ?>" />
+						<div class="caption">
+							<a href="<?php echo base_url().'index.php/home/book_info/'.$book['isbn'];?>"><strong><?php echo $book['title'];?></strong></a>
+							<p>
+								Rating : <?php echo $book['rating'];?>
+							</p>
+						</div>
+					</div>
+				</li>
+        <?php endforeach; ?>				
+			</ul>
+		</div>
 	</div>
-</div>
 
+</div>
 
 
 <!--Footer
@@ -162,11 +183,11 @@
         </div>
         <div class="span6">
             <div class="social pull-right">
-                <a href="#"><img src="<? php echo base_url();?>assets/img/social/googleplus.png" alt=""></a>
-                <a href="#"><img src="<? php echo base_url();?>assets/img/social/dribbble.png" alt=""></a>
-                <a href="#"><img src="<? php echo base_url();?>assets/img/social/twitter.png" alt=""></a>
-                <a href="#"><img src="<? php echo base_url();?>assets/img/social/dribbble.png" alt=""></a>
-                <a href="#"><img src="<? php echo base_url();?>assets/img/social/rss.png" alt=""></a>
+                <a href="#"><img src="assets/img/social/googleplus.png" alt=""></a>
+                <a href="#"><img src="assets/img/social/dribbble.png" alt=""></a>
+                <a href="#"><img src="assets/img/social/twitter.png" alt=""></a>
+                <a href="#"><img src="assets/img/social/dribbble.png" alt=""></a>
+                <a href="#"><img src="assets/img/social/rss.png" alt=""></a>
             </div>
         </div>
       </div>

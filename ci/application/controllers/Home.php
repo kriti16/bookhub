@@ -33,7 +33,15 @@ class Home extends CI_Controller {
 		$this->load->view('book_info.html',$data);
 //                echo implode(" ",$data['bookinfo'][0]);
 	}
- 
+        
+         public function author_info($author)
+	{
+                $data['authorinfo'] = $this->books_model->get_author_info($author);
+                $data['authorbooks'] = $this->books_model->get_author_books($author);
+//                $data['genre'] = $genre;
+		$this->load->view('author_info.html',$data);
+//                echo implode(" ",$data['bookinfo'][0]);
+	}
 
        
 }
