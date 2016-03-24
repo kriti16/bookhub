@@ -134,13 +134,21 @@
 	  <div class="span12">
 	  <!--<h2>Welcome to Fornax</h2>-->
 
-	
+          
 			<img class="pull-left" alt="" src="<?php echo base_url().$bookinfo[0]['coverimagepath'];?>" />
-
-			<p><?php echo $bookinfo[0]['intro'];?>
-                        </p>
-                        <p>Rating :<?php echo $bookinfo[0]['rating'];?>
-                        </p>
+                    <p>
+			<?php echo $bookinfo[0]['intro'];?>
+                    </p>
+                    <p>
+                        Rating :<?php echo $bookinfo[0]['rating'];?>
+                    </p>
+                    <p>
+                        Number of pages :<?php echo $bookinfo[0]['numpages'];?>
+                    </p>
+                    <p>
+                        Author: <a href="#"><?php echo $bookinfo[0]['author'];?>
+                        </a>
+                    </p>
 	  </div>
 	 </div>
 
