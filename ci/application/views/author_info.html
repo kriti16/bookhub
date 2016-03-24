@@ -72,7 +72,8 @@
                         </li>
                         
                         <li>
-                            <form class="navbar-form" role="search">
+                            <form class="navbar-form" role="search" method="post" 
+                            action="<?php echo base_url().'index.php/home/book_info_name';?>" >
                                 <div class="input-group add-on">
                                   <input class="form-control" placeholder="Search books" name="srch-term" id="srch-term" type="text">
                               
