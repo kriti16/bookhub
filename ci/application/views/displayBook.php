@@ -128,7 +128,7 @@
   <!-- /. PAGE TITLE-->
 
 	<div class="row">
-            <?php foreach ($book_info as $book_item): ?>
+            <?php foreach ($bookinfo as $book_item): ?>
 		<div class="span6">
 		<div class="media">
 				 <a href="#" class="pull-left"><img src="<?php echo base_url().$book_item['coverimagepath'];?>" class="media-object" alt='' /></a>
