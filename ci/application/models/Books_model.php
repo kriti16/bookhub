@@ -20,6 +20,19 @@ class Books_model extends CI_Model {
                 $query = $this->db->get();
                 return $query->result_array();
         }
+        public function get_book_info($isbn = FALSE)
+        {
+                if ($isbn === FALSE)
+                {
+                        $query = $this->db->get('bookdetails');
+                        return $query->result_array();
+                }
+                $this->db->select("*");
+                $this->db->from("bookdetails");
+                $this->db->where('isbn',$isbn);
+                $query = $this->db->get();
+                return $query->result_array();
+        }
         
 }
 

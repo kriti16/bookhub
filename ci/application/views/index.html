@@ -44,7 +44,7 @@
     <div class="container">
       <div class="row">
               <!--LOGO-->
-              <div class="span3"><a class="brand" href="<?php echo base_url();?>"><img src="assets/img/logo.png"/></a></div>
+              <div class="span3"><a class="brand" href="<?php echo base_url();?>"><img src="<?php echo base_url();?>assets/img/logo.png"/></a></div>
               <!-- /LOGO -->
 
             <!-- MAIN NAVIGATION -->  
@@ -54,26 +54,23 @@
                     <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
                     <div class="nav-collapse collapse navbar-responsive-collapse ">
                     <ul class="nav">
-                        <li class="active"><a href="application/views/index.html">Home</a></li>
-                        <li><a href="application/views/service.html">My Books</a></li>
+                        <!-- <li class="active"><a href="index.html">Home</a></li> -->
+                        <li><a href="service.html">My Books</a></li>
                         <li class="dropdown">
-                          <a href="application/views/about.html" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
+                          <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                  <li><a href="<?php echo base_url();?>application/views/about.html">Art</a></li>
-                                  <li><a href="<?php echo base_url();?>application/views/about.html">Biography</a></li>
-                                  <li><a href="<?php echo base_url();?>application/views/about.html">Business</a></li>
-                                  <li><a href="<?php echo base_url();?>application/views/about.html">Chick Lit</a></li>
-                                  <li><a href="<?php echo base_url();?>application/views/about.html">Children's</a></li>
-                                  <li><a href="<?php echo base_url();?>application/views/about.html">Christian</a></li>
-                                  <li><a href="<?php echo base_url();?>application/views/about.html">Classics</a></li>
-                                  <li><a href="<?php echo base_url();?>application/views/about.html">Comics</a></li>
-                                  <li><a href="<?php echo base_url();?>application/views/about.html">Contemporary</a></li>
-                                  <li><a href="<?php echo base_url();?>application/views/about.html">Cookbooks</a></li>
-                                  <li><a href="<?php echo base_url();?>application/views/about.html">Crime</a></li>
-                                  <li><a href="<?php echo base_url();?>application/views/about.html">Ebooks</a></li>
-                                  <li><a href="<?php echo base_url();?>application/views/about.html">Fantasy</a></li>
+                                  <li><a href="<?php echo base_url();?>index.php/home/genre/Art">Art</a></li>
+                                  <li><a href="<?php echo base_url();?>index.php/home/genre/Crime">Crime</a></li>
+                                  <li><a href="<?php echo base_url();?>index.php/home/genre/Classics">Classics</a></li>
+                                  <li><a href="<?php echo base_url();?>index.php/home/genre/Comedy">Comedy</a></li>
+                                  <li><a href="<?php echo base_url();?>index.php/home/genre/Fantasy">Fantasy</a></li>
                                   <li><a href="<?php echo base_url();?>index.php/home/genre/Fiction">Fiction</a></li>
-                                  <li><a href="<?php echo base_url();?>application/views/about.html">Gay and Lesbian</a></li>
+                                  <li><a href="<?php echo base_url();?>index.php/home/genre/History">History</a></li>
+                                  <li><a href="<?php echo base_url();?>index.php/home/genre/Horror">Horror</a></li>
+                                  <li><a href="<?php echo base_url();?>index.php/home/genre/Mystery">Mystery</a></li>
+                                  <li><a href="<?php echo base_url();?>index.php/home/genre/Non-Fiction">Non-Fiction</a></li>
+                                  <li><a href="<?php echo base_url();?>index.php/home/genre/Sci_Fi">Sci-Fi</a></li>
+                                  <li><a href="<?php echo base_url();?>index.php/home/genre/Thriller">Thriller</a></li>
                             </ul>
 
                         </li>
@@ -201,7 +198,7 @@
       </div>
 
       <div class="span4">
-        <a href="#"><img src="<?php echo base_url();?>assets/img/1.jpg"></a>
+        <a href="<?php echo base_url();?>index.php/home/book_info/62409859"><img src="<?php echo base_url();?>assets/img/1.jpg"></a>
         <!--<h2>Feature A</h2>-->
         <p>
             Book description comes here
