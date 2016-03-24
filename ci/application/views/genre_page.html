@@ -129,23 +129,33 @@
   <!-- /. PAGE TITLE-->
 
 	<div class="row">
+            <div class="span12">
+                <ul class="thumbnails">
             <?php foreach ($bookdetails as $book_item): ?>
-		<div class="span6">
-		<div class="media">
-				 <a href="#" class="pull-left"><img src="<?php echo base_url().$book_item['coverimagepath'];?>" class="media-object" alt='' /></a>
-				<div class="media-body">
-					<h4 class="media-heading">
+		<li class="span3">
+		<div class="row vdivide feature-box ">
+                                
+				 <a href="#"><img height="100" width="150" src="<?php echo base_url().$book_item['coverimagepath'];?>" alt='' /></a>
+                                    <div class="caption text-center">
+                                        <p></p>
+                                        <p>
 						<?php echo $book_item['title'];?>
-					</h4> 
-                                    <a href="<?php echo base_url().'index.php/home/author_info/'.$book_item['author'];?>"><?php echo 'Author : '.$book_item['author'];?></a>
-					<p><?php echo "Rating : ".$book_item['rating'];?>
+					</p> 
+                                        <p>
+                                        <a href="<?php echo base_url().'index.php/home/author_info/'.$book_item['author'];?>"><?php echo 'Author : '.$book_item['author'];?></a>
+                                        </p>
+                                        <p><?php echo "Rating : ".$book_item['rating'];?>
 					</p>
+                                        <p>
 					<a href="<?php echo base_url().'index.php/home/book_info/'.$book_item['isbn'];?>" class="btn" type="button">View book</a>
+                                        </p>
 				</div>
 			</div>
-		</div>			
+			
+        </li>
             <?php endforeach; ?>
-
+                </ul>
+            </div>
 	</div>
 </div>
 

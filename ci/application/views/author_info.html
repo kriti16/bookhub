@@ -134,14 +134,19 @@
   	<div class="row">
 	  <div class="span12">
 	  <!--<h2>Welcome to Fornax</h2>-->
-
-	
-			<img class="pull-left" alt="" src="<?php echo base_url().$authorinfo[0]['coverimagepath'];?>" />
-      <p>Birth Place :<?php echo $authorinfo[0]['birth_place'];?></p>
-      <p>Birth Date :<?php echo $authorinfo[0]['birth_date'];?></p>
+          <ul class="row" style="list-style-type:none">
+                    <li class="thumbnail span3">
+			<img alt="" src="<?php echo base_url().$authorinfo[0]['coverimagepath'];?>" height="150" width="226" />
+                        <div class="caption">    
+                        <p>Birth Place :<?php echo $authorinfo[0]['birth_place'];?></p>
+                            <p>Birth Date :<?php echo $authorinfo[0]['birth_date'];?></p>
+                        </div>
+                    </li>
+                    <li class="span9">
 			<p><?php echo $authorinfo[0]['intro'];?>
                         </p>
-                        
+                    </li>
+          </ul>
 	  </div>
 	 </div>
 
@@ -151,14 +156,17 @@
 		<div class="span12">
 
 		<h2><?php echo $authorinfo[0]['name']?>'s Books:</h2>
-			<ul class="thumbnails">
+			<ul class="thumbnails vdivide">
         <?php foreach ($authorbooks as $book): ?>
-				<li class="span4">
-					<div class="thumbnail">
-						<img alt="" src="<?php echo base_url().$book['coverimagepath']; ?>" />
-						<div class="caption">
-							<a href="<?php echo base_url().'index.php/home/book_info/'.$book['isbn'];?>"><strong><?php echo $book['title'];?></strong></a>
-							<p>
+				<li class="span3">
+					<div class="row feature-box">
+						<img alt="" src="<?php echo base_url().$book['coverimagepath']; ?>" height="150" width="200"/>
+						<div class="caption text-center">
+                                                    <p></p>
+                                                        <p style="font-size: 20px">
+							<a href="<?php echo base_url().'index.php/home/book_info/'.$book['isbn'];?>"><?php echo $book['title'];?></a>
+                                                        </p>
+                                                        <p>
 								Rating : <?php echo $book['rating'];?>
 							</p>
 						</div>
