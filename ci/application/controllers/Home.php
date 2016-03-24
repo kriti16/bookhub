@@ -38,7 +38,7 @@ class Home extends CI_Controller {
     {
                 $data['bookinfo'] = $this->books_model->get_book_info_name($_POST["srch-term"]);
 //                $data['genre'] = $genre;
-        $this->load->view('displayBook',$data);
+        $this->load->view('search_results.html',$data);
 //                echo implode(" ",$data['bookinfo'][0]);
     }
         

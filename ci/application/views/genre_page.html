@@ -134,18 +134,13 @@
                 <ul class="thumbnails">
             <?php foreach ($bookdetails as $book_item): ?>
 		<li class="span3">
-		<div class="row vdivide feature-box ">
+		<div class="row feature-box thumbnails">
                                 
 				 <a href="#"><img height="100" width="150" src="<?php echo base_url().$book_item['coverimagepath'];?>" alt='' /></a>
                                     <div class="caption text-center">
                                         <p></p>
                                         <p>
 						<?php echo $book_item['title'];?>
-					</p> 
-                                        <p>
-                                        <a href="<?php echo base_url().'index.php/home/author_info/'.$book_item['author'];?>"><?php echo 'Author : '.$book_item['author'];?></a>
-                                        </p>
-                                        <p><?php echo "Rating : ".$book_item['rating'];?>
 					</p>
                                         <p>
 					<a href="<?php echo base_url().'index.php/home/book_info/'.$book_item['isbn'];?>" class="btn" type="button">View book</a>
