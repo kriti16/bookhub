@@ -9,6 +9,7 @@
 
 	
   <link href="<?php echo base_url();?>assets/css/bootstrap.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>assets/css/bootstrapnew.css" rel="stylesheet">
 	<link href="<?php echo base_url();?>assets/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 
@@ -112,51 +113,57 @@
   <!-- /HEADER ROW -->
 
 
-
-
 <div class="container">
 	  <!--PAGE TITLE-->
 
 	<div class="row">
 		<div class="span12">
 		<div class="page-header">
-				<h1> Search results
+				<h1>
+				Search Results
 			</h1>
 		</div>
 		</div>
 	</div>
 
   <!-- /. PAGE TITLE-->
-  <div class="row">
-            <div class="span12">
-                <ul class="thumbnails">
+
+            <!--<div class="span12">-->
+                <!--<ul class="thumbnails">-->
+                    <div class="row">
+            <?php $i=0;?>           
             <?php foreach ($bookinfo as $book_item): ?>
-		<li class="span3">
-		<div class="row feature-box thumbnails">
-                                
+		<!--<li class="span3">-->
+                            
+                            <?php if ($i==0):?>
+                    </div>
+                    <div class="row">
+                                <div class="col-md-2 text-center">
+                            <?php else:?>
+                                <div class="col-md-2 text-center">
+                            <?php endif; ?>
+                            <?php $i=($i+1)%6;?>
 				 <a href="#"><img height="100" width="150" src="<?php echo base_url().$book_item['coverimagepath'];?>" alt='' /></a>
-                                    <div class="caption text-center">
+                                    <div class="caption">
                                         <p></p>
                                         <p>
 						<?php echo $book_item['title'];?>
-					</p> 
+					</p>
                                         <p>
                                         <a href="<?php echo base_url().'index.php/home/author_info/'.$book_item['author'];?>"><?php echo 'Author : '.$book_item['author'];?></a>
                                         </p>
-                                        <p><?php echo "Rating : ".$book_item['rating'];?>
-					</p>
                                         <p>
 					<a href="<?php echo base_url().'index.php/home/book_info/'.$book_item['isbn'];?>" class="btn" type="button">View book</a>
                                         </p>
 				</div>
-			</div>
-			
-        </li>
+                            </div>			
+        <!--</li>-->    
             <?php endforeach; ?>
-                </ul>
+                    </div>
+                <!--</ul>-->
             </div>
-	</div>
-</div>
+	<!--</div>-->
+<!--</div>-->
 
 
 
