@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'db4free.net',
-	'username' => 'prakrit',
-	'password' => 'random16',
-	'database' => 'bookhub',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => 'kriti',
+	'database' => 'bookHub',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => TRUE,

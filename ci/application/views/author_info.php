@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title><?php echo $genre." books"; ?></title>
+  <title><?php echo $authorinfo[0]['name']; ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
 
 	
   <link href="<?php echo base_url();?>assets/css/bootstrap.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>assets/css/bootstrapnew.css" rel="stylesheet">
 	<link href="<?php echo base_url();?>assets/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 
@@ -26,7 +25,6 @@
   <link rel="apple-touch-icon-precomposed" href="<?php echo base_url();?>assets/img/apple-touch-icon-57-precomposed.png">
   <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/favicon.png">
   
-
 
     <!-- SCRIPT 
     ============================================================-->  
@@ -96,8 +94,8 @@
                 </div>
             </div>
 </li>-->
-                        <li><a href="<?php echo base_url();?>application/views/signup.html">Login/Sign up</a></li>
-                         <!--<li><a href="application/views/signup.html">Sign up</a></li>--> 
+                        <li><a href="<?php echo base_url();?>index.php/home/login">Login</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/home/signup">Sign up</a></li>
                  
                     </ul>
   
@@ -113,55 +111,74 @@
   <!-- /HEADER ROW -->
 
 
+
+
+
+
 <div class="container">
-	  <!--PAGE TITLE-->
+
+  <!--PAGE TITLE-->
 
 	<div class="row">
 		<div class="span12">
 		<div class="page-header">
+
 				<h1>
-				<?php echo $genre; ?> books
+				<?php echo $authorinfo[0]['name']; ?>
 			</h1>
 		</div>
+
 		</div>
 	</div>
 
   <!-- /. PAGE TITLE-->
+  	<div class="row">
+	  <div class="span12">
+	  <!--<h2>Welcome to Fornax</h2>-->
+          <ul class="row" style="list-style-type:none">
+                    <li class="thumbnail span3">
+			<img alt="" src="<?php echo base_url().$authorinfo[0]['coverimagepath'];?>" height="150" width="226" />
+                        <div class="caption">    
+                        <p>Birth Place :<?php echo $authorinfo[0]['birth_place'];?></p>
+                            <p>Birth Date :<?php echo $authorinfo[0]['birth_date'];?></p>
+                        </div>
+                    </li>
+                    <li class="span9">
+			<p><?php echo $authorinfo[0]['intro'];?>
+                        </p>
+                    </li>
+          </ul>
+	  </div>
+	 </div>
 
-            <!--<div class="span12">-->
-                <!--<ul class="thumbnails">-->
-                    <div class="row">
-            <?php $i=0;?>           
-            <?php foreach ($bookdetails as $book_item): ?>
-		<!--<li class="span3">-->
-                            
-                            <?php if ($i==0):?>
-                    </div>
-                    <div class="row">
-                                <div class="col-md-3 text-center">
-                            <?php else:?>
-                                <div class="col-md-3 text-center">
-                            <?php endif; ?>
-                            <?php $i=($i+1)%4;?>
-				 <a href="#"><img height="120" width="180" src="<?php echo base_url().$book_item['coverimagepath'];?>" alt='' /></a>
-                                    <div class="caption">
-                                        <p></p>
-                                        <p>
-						<?php echo $book_item['title'];?>
-					</p>
-                                        <p>
-					<a href="<?php echo base_url().'index.php/home/book_info/'.$book_item['isbn'];?>" class="btn" type="button">View book</a>
-                                        </p>
-				</div>
-                            </div>			
-        <!--</li>-->    
-            <?php endforeach; ?>
-                    </div>
-                <!--</ul>-->
-            </div>
-	<!--</div>-->
-<!--</div>-->
+	 <div class="hr-divider"></div>
 
+	<div class="row">
+		<div class="span12">
+
+		<h2><?php echo $authorinfo[0]['name']?>'s Books:</h2>
+			<ul class="thumbnails vdivide">
+        <?php foreach ($authorbooks as $book): ?>
+				<li class="span3">
+					<div class="row feature-box">
+						<img alt="" src="<?php echo base_url().$book['coverimagepath']; ?>" height="150" width="200"/>
+						<div class="caption text-center">
+                                                    <p></p>
+                                                        <p style="font-size: 20px">
+							<a href="<?php echo base_url().'index.php/home/book_info/'.$book['isbn'];?>"><?php echo $book['title'];?></a>
+                                                        </p>
+                                                        <p>
+								Rating : <?php echo $book['rating'];?>
+							</p>
+						</div>
+					</div>
+				</li>
+        <?php endforeach; ?>				
+			</ul>
+		</div>
+	</div>
+
+</div>
 
 
 <!--Footer
@@ -187,8 +204,6 @@
 </footer>
 
 <!--/.Footer-->
-
-
 
 </body>
 </html>

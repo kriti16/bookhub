@@ -1,3 +1,9 @@
+ <?php 
+if (isset($this->session->userdata['logged_in'])) {
+$username = ($this->session->userdata['logged_in']['username']);
+$name = ($this->session->userdata['logged_in']['name']);
+}
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,10 +13,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Bootstrap -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/bootstrapnew.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet"> 
+    <link href="<?php echo base_url();?>assets/css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/css/bootstrapnew.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet"> 
     
     <!--Font-->
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'>
@@ -39,6 +45,7 @@
       
       
   </head>
+
   <body>
   <!--HEADER ROW-->
   <div id="header-row">
@@ -56,9 +63,16 @@
                     <div class="nav-collapse collapse navbar-responsive-collapse ">
                     <ul class="nav">
                         <!-- <li class="active"><a href="index.html">Home</a></li> -->
-                        <li><a href="service.html">My Books</a></li>
+                        <?php 
+                        if (isset($this->session->userdata['logged_in'])){
+                            echo '<li><a href="'.base_url().'index.php/home/user_books/'.$username.'">My Books</a></li>';
+                        }
+                        else{
+                            echo '<li><a href="'.base_url().'index.php/home/login">My Books</a></li>';
+                        }
+                        ?>
                         <li class="dropdown">
-                          <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
+                          <a href="" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                   <li><a href="<?php echo base_url();?>index.php/home/genre/Art">Art</a></li>
                                   <li><a href="<?php echo base_url();?>index.php/home/genre/Crime">Crime</a></li>
@@ -98,9 +112,16 @@
                     </span>
                 </div>
             </div>
-</li>-->
-                        <li><a href="<?php echo base_url();?>application/views/signup.html">Login/Sign up</a></li>
-                         <!--<li><a href="application/views/signup.html">Sign up</a></li>--> 
+</li>-->                <?php 
+                        if (!isset($this->session->userdata['logged_in'])){
+                        echo '<li><a href="'.base_url().'index.php/home/login">Login</a></li>'.
+                        '<li><a href="'.base_url().'index.php/home/signup">Signup</a></li>';
+                        }
+                        else{
+                            echo '<li><a href="'.base_url().'index.php/user_auth/logout">Logout</a></li>';
+                        }
+                        ?>
+                        
                  
                     </ul>
   
@@ -137,7 +158,12 @@
                       <p class="lead"> “A reader lives a thousand lives before he dies, said Jojen. The man who never reads lives only one.”
                                     ― George R.R. Martin<br>
                        Go ahead with your reading habit by finding the best books out there, while also keeping track of all the awesome books you read. </p>
-                      <a class="btn btn-large btn-primary" href="<?php echo base_url();?>application/views/signup.html">Sign up today</a>
+                       <?php 
+                        if (!isset($this->session->userdata['logged_in'])){
+                            echo '<a class="btn btn-large btn-primary" href="'.base_url().'index.php/home/signup">Sign up today</a>';
+                            
+                        }
+                        ?>
                 </div>
 
               </div>
@@ -163,7 +189,13 @@
                       <h1>Manage your books online</h1>
                       <p class="lead">Keep a log of all your favorite books, the ones which you
                       read long back and the ones you look forward to read. A whole world of books is waiting for you. </p>
-                      <a class="btn btn-large btn-primary" href="#">Sign up today</a>
+                      
+                      <?php 
+                        if (!isset($this->session->userdata['logged_in'])){
+                            echo '<a class="btn btn-large btn-primary" href="'.base_url().'index.php/home/login">Login</a>';
+                            
+                        }
+                        ?>
                 </div>
 
               </div>
