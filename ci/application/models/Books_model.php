@@ -154,6 +154,20 @@ class Books_model extends CI_Model {
             $query = $this->db->query($sql,array($username,$status,$isbn));
 //            return $query->result_array();
         }
+        public function set_new_status($username,$isbn,$status)
+        {
+            if ($username === FALSE)
+            {
+                return NULL;
+            }
+            $sql1 = 'SELECT user_id FROM users WHERE username=?';
+            $query = $this->db->query($sql1,array($username));
+            $userid = $query->result_array();
+            $sql = 'INSERT INTO userbooks
+                    VALUES (?,?,?)';
+            $this->db->query($sql,array($userid[0]['user_id'],$isbn,$status));
+//            return $query->result_array();
+        }
         public function get_user_rating($username,$isbn)
         {
             if ($username === FALSE)
@@ -165,17 +179,6 @@ class Books_model extends CI_Model {
                     (SELECT user_id FROM users WHERE username=?) as B
                     WHERE A.user_id = B.user_id AND isbn = ?';
             $query = $this->db->query($sql,array($username,$isbn));
-            return $query->result_array();
-        }
-        public function get_avg_rating($isbn)
-        {
-            $sql = 'SELECT ROUND(AVG(A.rating),2) as avgrating
-                    FROM 
-                    (SELECT CAST(CAST(`rating` AS CHAR) AS SIGNED) as rating,isbn,user_id 
-                    FROM userrating) as A			   			 
-                    WHERE A.isbn = ?
-                    GROUP BY A.isbn';
-            $query = $this->db->query($sql,array($isbn));
             return $query->result_array();
         }
         public function set_rating($username,$isbn,$rating)
@@ -204,6 +207,17 @@ class Books_model extends CI_Model {
                     VALUES (?,?,?)';
             $this->db->query($sql,array($userid[0]['user_id'],$isbn,$rating));
 //            return $query->result_array();
+        }
+        public function get_avg_rating($isbn)
+        {
+            $sql = 'SELECT ROUND(AVG(A.rating),2) as avgrating
+                    FROM 
+                    (SELECT CAST(CAST(`rating` AS CHAR) AS SIGNED) as rating,isbn,user_id 
+                    FROM userrating) as A			   			 
+                    WHERE A.isbn = ?
+                    GROUP BY A.isbn';
+            $query = $this->db->query($sql,array($isbn));
+            return $query->result_array();
         }
 }
 

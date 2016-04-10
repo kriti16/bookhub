@@ -1,3 +1,9 @@
+ <?php 
+if (isset($this->session->userdata['logged_in'])) {
+$username = ($this->session->userdata['logged_in']['username']);
+$name = ($this->session->userdata['logged_in']['name']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +59,14 @@
                     <div class="nav-collapse collapse navbar-responsive-collapse ">
                     <ul class="nav">
                         <!-- <li class="active"><a href="index.html">Home</a></li> -->
-                        <li><a href="service.html">My Books</a></li>
+                        <?php 
+                        if (isset($this->session->userdata['logged_in'])){
+                            echo '<li><a href="'.base_url().'index.php/home/user_books/'.$username.'">My Books</a></li>';
+                        }
+                        else{
+                            echo '<li><a href="'.base_url().'index.php/home/login">My Books</a></li>';
+                        }
+                        ?>
                         <li class="dropdown">
                           <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -96,8 +109,15 @@
                 </div>
             </div>
 </li>-->
-                        <li><a href="<?php echo base_url();?>index.php/home/login">Login</a></li>
-                        <li><a href="<?php echo base_url();?>index.php/home/signup">Sign up</a></li>
+                        <?php 
+                        if (!isset($this->session->userdata['logged_in'])){
+                        echo '<li><a href="'.base_url().'index.php/home/login">Login</a></li>'.
+                        '<li><a href="'.base_url().'index.php/home/signup">Signup</a></li>';
+                        }
+                        else{
+                            echo '<li><a href="'.base_url().'index.php/user_auth/logout">Logout</a></li>';
+                        }
+                        ?>
                  
                     </ul>
   

@@ -33,6 +33,9 @@ class Home extends CI_Controller {
                 if (isset($this->session->userdata['logged_in'])) {
                     $username = ($this->session->userdata['logged_in']['username']);
                     $data['status'] = $this->books_model->get_status($username,$isbn);
+                    if (count($data['status'])==0){
+                        $data['status'][0]['read_status'] = 'Add read status';
+                    }
                     $data['rating'] = $this->books_model->get_user_rating($username,$isbn);
                     if (count($data['rating'])==0){
                         $data['rating'][0]['rating'] = 'Not yet rated';
@@ -77,7 +80,13 @@ class Home extends CI_Controller {
         public function set_status($isbn,$status)
         {
             $username = ($this->session->userdata['logged_in']['username']);
-            $bool = $this->books_model->set_status($username,$isbn,$status);
+            $numstatus = $this->books_model->get_status($username,$isbn);
+            if (count($numstatus)==0){
+                $bool = $this->books_model->set_new_status($username,$isbn,$status);
+            }
+            else{
+                $bool = $this->books_model->set_status($username,$isbn,$status);
+            }
             if ($bool == TRUE)
             {
                 $data['message'] = 'Updated successfully';
