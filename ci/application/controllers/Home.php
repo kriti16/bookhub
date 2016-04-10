@@ -40,11 +40,11 @@ class Home extends CI_Controller {
                     if (count($data['rating'])==0){
                         $data['rating'][0]['rating'] = 'Not yet rated';
                     }
-                    $data['avgrating'] = $this->books_model->get_avg_rating($isbn);
+                }
+                $data['avgrating'] = $this->books_model->get_avg_rating($isbn);
                     if (count($data['avgrating'])==0){
                         $data['avgrating'][0]['avgrating'] = 'No user ratings available';
                     }
-                }
 //                $data['genre'] = $genre;
 		$this->load->view('book_info',$data);
 //                echo implode(" ",$data['bookinfo'][0]);
