@@ -9,7 +9,7 @@ class Home extends CI_Controller {
                 parent::__construct();
                 $this->load->model('books_model');
                 $this->load->helper('url_helper');
-                $this->load->library('encrypt');
+                // $this->load->library('encrypt');
         }
         public function index()
 	{

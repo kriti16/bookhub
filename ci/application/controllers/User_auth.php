@@ -10,7 +10,7 @@ class User_auth extends CI_Controller {
                 parent::__construct();
                 $this->load->model('books_model');
                 $this->load->helper('url_helper');
-                $this->load->library('encrypt');
+                // $this->load->library('encrypt');
         }
         public function index()
 	{
@@ -40,25 +40,47 @@ class User_auth extends CI_Controller {
                     /*** if there is no match ***/
                     $data['message'] = "Password must be alpha numeric";
             }
-            $encrypted_password=sha1($_POST["form-password-1"]);
-            $data['user'] = $this->books_model->verify_user($_POST["form-username"],$encrypted_password);
-            if (count($data['user'])!=0)
-            {
-                $session_data = array(
-                'name' => $data['user'][0]['full_name'],
-                'username' => $data['user'][0]['username'],
-                );
-                $this->session->set_userdata('logged_in', $session_data);
-                $this->load->view('index');
+            if(isset($_POST['access'])){
+                $encrypted_password=sha1($_POST["form-password-1"]);
+                $data['admin'] = $this->books_model->verify_admin($_POST["form-username"],$encrypted_password);    
+                if (count($data['admin'])!=0)
+                {
+                    $session_data = array(
+                    'name' => $data['admin'][0]['full_name'],
+                    'username' => $data['admin'][0]['username'],
+                    );
+                    $this->session->set_userdata('logged_in', $session_data);
+                    $this->load->view('admin_panel');
+                }
+                else
+                {
+                    $data = array(
+                    'error_message' => 'Invalid Username or Password'
+                    );
+                    $this->load->view('login',$data);
+                }
             }
-            else
-            {
-                $data = array(
-                'error_message' => 'Invalid Username or Password'
-                );
-            $this->load->view('login',$data);
-            }
-           
+            else{
+                $encrypted_password=sha1($_POST["form-password-1"]);
+                $data['user'] = $this->books_model->verify_user($_POST["form-username"],$encrypted_password);
+            
+                if (count($data['user'])!=0)
+                {
+                    $session_data = array(
+                    'name' => $data['user'][0]['full_name'],
+                    'username' => $data['user'][0]['username'],
+                    );
+                    $this->session->set_userdata('logged_in', $session_data);
+                    $this->load->view('index');
+                }
+                else
+                {
+                    $data = array(
+                    'error_message' => 'Invalid Username or Password'
+                    );
+                    $this->load->view('login',$data);
+                }
+           }
         }
         public function add_user()
         {

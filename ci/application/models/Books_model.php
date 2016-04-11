@@ -88,6 +88,19 @@ class Books_model extends CI_Model {
             $query = $this->db->get();
             return $query->result_array();
         }
+        public function verify_admin($username,$password)
+        {
+            if ($username === FALSE)
+            {
+                return NULL;
+            }
+            $this->db->select("*");
+            $this->db->from("admins");
+            $this->db->where('username',($username));
+            $this->db->where('password',($password));
+            $query = $this->db->get();
+            return $query->result_array();
+        }
         public function add_user_to_db($fullname,$username,$password)
         {
             if ($username === FALSE)

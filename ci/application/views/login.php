@@ -39,7 +39,7 @@
       <div class="row">
               <!--LOGO-->
               <div class="span3"><a class="brand" href="http://localhost/ci"><img src="/ci/assets/img/logo.png"/></a></div>
-              <!-- /LOGO -->
+              <!-- /LOGO -->              
       </div>
     </div>
   </div>
@@ -101,6 +101,7 @@
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-password-1">Password</label>
 				                        	<input type="password" name="form-password-1" placeholder="Password..." class="form-password form-control" id="form-password-1" required>
+                                            <input type="checkbox" name="access" value="admin"> Admin<br>                                         
 				                        </div>
 				                        <button type="submit" class="btn">Sign in!</button>
 				                    </form>
