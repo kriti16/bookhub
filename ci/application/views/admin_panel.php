@@ -103,25 +103,25 @@ $name = ($this->session->userdata['logged_in']['name']);
 	            <div class="row">
 	                <div class="col-sm-12 msf-form">
 	                    
-	                    <form role="form" action="<?php echo base_url().'index.php/admin_power/add_book';?>" method="post" class="form-inline">
+	                    <form role="form" action="<?php echo base_url();?>index.php/admin_power/add_book" method="post" class="form-inline">
 
 	                    	<fieldset>
 	            				<h4><span class="step">(Step 1 / 3)</span></h4>
 	            				<div class="form-group">
 				                    <label for="first-name">ISBN:</label><br>
-				                    <input type="text" name="first-name" class="first-name form-control" id="first-name">
+				                    <input type="text" name="isbn" class="first-name form-control" id="first-name">
 				                </div>
 				                <div class="form-group">
 				                    <label for="last-name">Book Title:</label><br>
-				                    <input type="text" name="last-name" class="last-name form-control" id="last-name">
+				                    <input type="text" name="title" class="last-name form-control" id="last-name">
 				                </div>
 				                <div class="form-group">
 				                    <label for="height">Author:</label><br>
-				                    <input type="text" name="height" class="height form-control" id="height">
+				                    <input type="text" name="author" class="height form-control" id="height">
 				                </div>
 				                <div class="form-group">
 				                    <label for="weight">Rating:</label><br>
-				                    <input type="text" name="weight" class="weight form-control" id="weight">
+				                    <input type="text" name="rating" class="weight form-control" id="weight">
 				                </div>
 	            				<br>
 	            				<button type="button" class="btn btn-next">Next <i class="fa fa-angle-right"></i></button>
@@ -131,23 +131,23 @@ $name = ($this->session->userdata['logged_in']['name']);
 	            				<h4> <span class="step">(Step 2 / 3)</span></h4>
 	            				<div class="form-group">
 				                    <label for="social-facebook">Pages:</label><br>
-				                    <input type="text" name="social-facebook" class="social-facebook form-control" id="social-facebook">
+				                    <input type="text" name="pages" class="social-facebook form-control" id="social-facebook">
 				                </div>
 				                <div class="form-group">
 				                    <label for="social-twitter">Cover Image Path:</label><br>
-				                    <input type="text" name="social-twitter" class="social-twitter form-control" id="social-twitter">
+				                    <input type="text" name="cover" class="social-twitter form-control" id="social-twitter">
 				                </div>
 				                <div class="form-group">
 				                    <label for="social-google-plus">Genre 1:</label><br>
-				                    <input type="text" name="social-google-plus" class="social-google-plus form-control" id="social-google-plus">
+				                    <input type="text" name="g0" class="social-google-plus form-control" id="social-google-plus">
 				                </div>
 				                <div class="form-group">
 				                    <label for="social-instagram">Genre 2:</label><br>
-				                    <input type="text" name="social-instagram" class="social-instagram form-control" id="social-instagram">
+				                    <input type="text" name="g1" class="social-instagram form-control" id="social-instagram">
 				                </div>
 				                <div class="form-group">
 				                    <label for="social-pinterest">Genre 3:</label><br>
-				                    <input type="text" name="social-pinterest" class="social-pinterest form-control" id="social-pinterest">
+				                    <input type="text" name="g2" class="social-pinterest form-control" id="social-pinterest">
 				                </div>
 	            				<br>
 	            				<button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button>
@@ -158,7 +158,7 @@ $name = ($this->session->userdata['logged_in']['name']);
 	            				<h4><span class="step">(Step 3 / 3)</span></h4>
 	            				<div class="form-group">
 									<label for="about-you">Description:</label><br>
-				                    <textarea name="about-you" class="about-you form-control" id="about-you"></textarea>
+				                    <textarea name="info" class="about-you form-control" id="about-you"></textarea>
 				                </div>
 	            				<br>
 	            				<button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button>

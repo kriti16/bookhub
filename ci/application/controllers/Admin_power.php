@@ -27,4 +27,22 @@ class Admin_power extends CI_Controller {
             }
         
         }
+    public function add_book()
+        {
+            $data['user'] = $this->books_model->check_book($_POST["isbn"]);
+            if (count($data['user'])!=0)
+            {
+                $data['message'] = 'Book with this ISBN already exists';
+                $this->load->view('admin_panel',$data);
+            }
+            else
+            {
+                $this->books_model->add_book_to_db($_POST["isbn"],$_POST["title"],$_POST["author"],
+                	$_POST["rating"],$_POST["pages"],$_POST["cover"],$_POST["g0"],$_POST["g1"],
+                	$_POST["g2"],$_POST["info"]);
+                $data['message']= 'Successfully added '.$POST_["title"].' to database!!';
+                $this->load->view('admin_panel',$data);
+            }
+        
+        }
 }

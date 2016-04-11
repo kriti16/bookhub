@@ -114,6 +114,26 @@ class Books_model extends CI_Model {
              );
             $this->db->insert("users",$data);
         }
+        public function add_book_to_db($isbn,$title,$author,$rating,$pages,$cover,$g0,$g1,$g2,$info)
+        {
+            if ($isbn === FALSE)
+            {
+                return NULL;
+            }
+            $data = array(
+                'isbn' => $isbn ,
+                'title' => $title ,
+                'author' => $author,
+                'rating' => $rating ,
+                'numpages' => $pages ,
+                'coverimagepath' => $cover,
+                'genre0' => $g0 ,
+                'genre1' => $g1 ,
+                'genre2' => $g2,
+                'intro' => $info
+             );
+            $this->db->insert("bookdetails",$data);
+        }
         public function add_admin_to_db($fullname,$username,$password)
         {
             if ($username === FALSE)
@@ -136,6 +156,18 @@ class Books_model extends CI_Model {
             $this->db->select("*");
             $this->db->from("users");
             $this->db->where('username',($username));
+            $query = $this->db->get();
+            return $query->result_array();
+        }
+        public function check_book($isbn)
+        {
+            if ($isbn === FALSE)
+            {
+                return NULL;
+            }
+            $this->db->select("*");
+            $this->db->from("bookdetails");
+            $this->db->where('isbn',($isbn));
             $query = $this->db->get();
             return $query->result_array();
         }
