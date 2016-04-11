@@ -74,8 +74,9 @@ $name = ($this->session->userdata['logged_in']['name']);
     	<li class="active"><a data-toggle="tab" href="#book">Add Book</a></li>
     	<li><a data-toggle="tab" href="#author">Add Author</a></li>
     	<li><a data-toggle="tab" href="#admin">Add Admin</a></li>
-    	<li><a data-toggle="tab" href="#update">Update Book</a></li>
-    	<li><a data-toggle="tab" href="#update">Update Author</a></li>
+    	<li><a data-toggle="tab" href="#update_book">Update Book</a></li>
+    	<li><a data-toggle="tab" href="#update_author">Update Author</a></li>
+    	<li><a data-toggle="tab" href="#delete">Delete</a></li>
     	<li><a href="<?php echo base_url();?>index.php/user_auth/logout">Logout</a></li>
   	</ul>
 
@@ -278,6 +279,189 @@ $name = ($this->session->userdata['logged_in']['name']);
 	            				
 	            				<button type="submit" class="btn">Submit</button>
 	            			</fieldset>           		          			
+	                    	
+	                    </form>
+	                    
+	                </div>
+	            </div>
+			</div>
+		</div>
+		  </div>
+		  <div id="update_book" name="update_book" class="tab-pane fade">
+		    	<div class="description-container">
+	        <div class="container">
+	        	<div class="row">
+	                <div class="col-sm-12 description-title">
+	                    <h2>Update Book</h2>
+	                </div>
+	            </div>
+			</div>
+		</div>
+		
+		<!-- Multi Step Form -->
+		<div class="msf-container">
+	        <div class="container">
+	        	<!-- <div class="row">
+	                <div class="col-sm-12 msf-title">
+	                    <h3>Fill In The Form</h3>
+	                    <p>Please complete the form below to get instant access to our application and all its features:</p>
+	                </div>
+	            </div> -->
+	            <div class="row">
+	                <div class="col-sm-12 msf-form">
+	                    
+	                    <form role="form" action="<?php echo base_url()?>index.php/admin_power/add_admin" method="post" class="form-inline">	                    	
+	                    	<fieldset>
+	            				<h4>Fill the entries you want to update </h4>
+	            				<div class="form-group">
+				                    <label for="address">ISBN:</label><br>
+				                    <input type="text" name="isbn" class="address form-control" id="address" value="Compulsory to fill">
+				                </div>
+				                <div class="form-group">
+				                    <label for="address-city">Title:</label><br>
+				                    <input type="text" name="title" class="address-city form-control" id="address-city">
+				                </div>
+				                <div class="form-group">
+				                    <label for="address-state">Author:</label><br>
+				                    <input type="text" name="author" class="address-state form-control" id="address-state">
+				                </div>				                
+				                <div class="form-group">
+				                    <label for="address-postal-code">Rating:</label><br>
+				                    <input type="text" name="rating" class="address-postal-code form-control" id="address-postal-code">
+				                </div>
+				                <div class="form-group">
+				                    <label for="telephone">Intro:</label><br>
+				                    <input type="text" name="intro" class="telephone form-control" id="telephone">
+				                </div>
+				                <div class="form-group">
+				                    <label for="mobile-phone">Pages:</label><br>
+				                    <input type="text" name="pages" class="mobile-phone form-control" id="mobile-phone">
+				                </div>
+				                <div class="form-group">
+				                    <label for="email">Cover Image:</label><br>
+				                    <input type="text" name="cover" class="email form-control" id="email">
+				                </div>
+				                <div class="form-group">
+				                    <label for="address-country">Genre:</label><br>
+				                    <input type="text" name="g0" class="address-country form-control" id="address-country">
+				                </div>
+	            				<br>
+	            				<!-- <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button> -->
+	            				<button type="button" class="btn btn-next">Update <i class="fa fa-angle-right"></i></button>
+	            			</fieldset>        		          			
+	                    	
+	                    </form>
+	                    
+	                </div>
+	            </div>
+			</div>
+		</div>
+		  </div>
+		  <div id="update_author" name="update_author" class="tab-pane fade">
+		    	<div class="description-container">
+	        <div class="container">
+	        	<div class="row">
+	                <div class="col-sm-12 description-title">
+	                    <h2>Update Author</h2>
+	                </div>
+	            </div>
+			</div>
+		</div>
+		
+		<!-- Multi Step Form -->
+		<div class="msf-container">
+	        <div class="container">
+	        	<!-- <div class="row">
+	                <div class="col-sm-12 msf-title">
+	                    <h3>Fill In The Form</h3>
+	                    <p>Please complete the form below to get instant access to our application and all its features:</p>
+	                </div>
+	            </div> -->
+	            <div class="row">
+	                <div class="col-sm-12 msf-form">
+	                    
+	                    <form role="form" action="<?php echo base_url()?>index.php/admin_power/add_admin" method="post" class="form-inline">	                    	
+	                    	<fieldset>
+	            				<h4>Fill the entries you want to update </h4>
+	            				<div class="form-group">
+				                    <label for="address">Name:</label><br>
+				                    <input type="text" name="isbn" class="address form-control" id="address" value="Compulsory to fill">
+				                </div>
+				                <div class="form-group">
+				                    <label for="address-city">Birth Place:</label><br>
+				                    <input type="text" name="title" class="address-city form-control" id="address-city">
+				                </div>
+				                <div class="form-group">
+				                    <label for="address-state">Birth Date:</label><br>
+				                    <input type="text" name="author" class="address-state form-control" id="address-state">
+				                </div>				                
+				                <div class="form-group">
+				                    <label for="address-postal-code">Died On:</label><br>
+				                    <input type="text" name="rating" class="address-postal-code form-control" id="address-postal-code">
+				                </div>
+				                <div class="form-group">
+				                    <label for="telephone">Intro:</label><br>
+				                    <input type="text" name="intro" class="telephone form-control" id="telephone">
+				                </div>
+				                
+				                <div class="form-group">
+				                    <label for="email">Cover Image:</label><br>
+				                    <input type="text" name="cover" class="email form-control" id="email">
+				                </div>
+				                
+	            				<br>
+	            				<!-- <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button> -->
+	            				<button type="button" class="btn btn-next">Update <i class="fa fa-angle-right"></i></button>
+	            			</fieldset>          		          			
+	                    	
+	                    </form>
+	                    
+	                </div>
+	            </div>
+			</div>
+		</div>
+		  </div>
+		  
+		  
+		  <div id="delete" name="delete" class="tab-pane fade">
+		    	<div class="description-container">
+	        <div class="container">
+	        	<div class="row">
+	                <div class="col-sm-12 description-title">
+	                    <h2>Delete</h2>
+	                </div>
+	            </div>
+			</div>
+		</div>
+		
+		<!-- Multi Step Form -->
+		<div class="msf-container">
+	        <div class="container">
+	        	<!-- <div class="row">
+	                <div class="col-sm-12 msf-title">
+	                    <h3>Fill In The Form</h3>
+	                    <p>Please complete the form below to get instant access to our application and all its features:</p>
+	                </div>
+	            </div> -->
+	            <div class="row">
+	                <div class="col-sm-12 msf-form">
+	                    
+	                    <form role="form" action="<?php echo base_url()?>index.php/admin_power/add_admin" method="post" class="form-inline">	                    	
+	                    	<fieldset>
+	            				<h4>Fill the entries you want to delete </h4>
+	            				<div class="form-group">
+				                    <label for="address">Book's ISBN:</label><br>
+				                    <input type="text" name="isbn" class="address form-control" id="address">
+				                </div>
+				                <div class="form-group">
+				                    <label for="address-city">Author's Name:</label><br>
+				                    <input type="text" name="name" class="address-city form-control" id="address-city">
+				                </div>				                
+				                
+	            				<br>
+	            				<!-- <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button> -->
+	            				<button type="button" class="btn btn-next">Delete <i class="fa fa-angle-right"></i></button>
+	            			</fieldset>          		          			
 	                    	
 	                    </form>
 	                    
