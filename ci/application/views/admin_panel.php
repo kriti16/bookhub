@@ -188,31 +188,31 @@ $name = ($this->session->userdata['logged_in']['name']);
 	            <div class="row">
 	                <div class="col-sm-12 msf-form">
 	                    
-	                    <form role="form" action="<?php echo base_url().'index.php/admin_power/add_author';?>" method="post" class="form-inline">                    	
+	                    <form role="form" action="<?php echo base_url();?>index.php/admin_power/add_author" method="post" class="form-inline">                    	
 	                    	<fieldset>
 	            				<h4><span class="step">(Step 1 / 2)</span></h4>
 	            				<div class="form-group">
 				                    <label for="social-facebook">Name:</label><br>
-				                    <input type="text" name="social-facebook" class="social-facebook form-control" id="social-facebook">
+				                    <input type="text" name="name" class="social-facebook form-control" id="social-facebook">
 				                </div>
 				                <div class="form-group">
 				                    <label for="social-twitter">Birth Place:</label><br>
-				                    <input type="text" name="social-twitter" class="social-twitter form-control" id="social-twitter">
+				                    <input type="text" name="bp" class="social-twitter form-control" id="social-twitter">
 				                </div>
 				                <div class="form-group">
 				                    <label for="social-google-plus">Birth Date:</label><br>
-				                    <input type="text" name="social-google-plus" class="social-google-plus form-control" id="social-google-plus">
+				                    <input type="text" name="bd" class="social-google-plus form-control" id="social-google-plus">
 				                </div>
 				                <div class="form-group">
 				                    <label for="social-instagram">Died On:</label><br>
-				                    <input type="text" name="social-instagram" class="social-instagram form-control" id="social-instagram">
+				                    <input type="text" name="died" class="social-instagram form-control" id="social-instagram">
 				                </div>
 				                <div class="form-group">
 				                    <label for="social-pinterest">Cover Image:</label><br>
-				                    <input type="text" name="social-pinterest" class="social-pinterest form-control" id="social-pinterest">
+				                    <input type="text" name="cover" class="social-pinterest form-control" id="social-pinterest">
 				                </div>
 	            				<br>
-	            				<button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button>
+	            				
 	            				<button type="button" class="btn btn-next">Next <i class="fa fa-angle-right"></i></button>
 	            			</fieldset>
 	            			
@@ -220,7 +220,7 @@ $name = ($this->session->userdata['logged_in']['name']);
 	            				<h4> <span class="step">(Step 2 / 2)</span></h4>
 	            				<div class="form-group">
 									<label for="about-you">About Author:</label><br>
-				                    <textarea name="about-you" class="about-you form-control" id="about-you"></textarea>
+				                    <textarea name="info" class="about-you form-control" id="about-you"></textarea>
 				                </div>
 	            				<br>
 	            				<button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button>

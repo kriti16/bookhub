@@ -40,7 +40,24 @@ class Admin_power extends CI_Controller {
                 $this->books_model->add_book_to_db($_POST["isbn"],$_POST["title"],$_POST["author"],
                 	$_POST["rating"],$_POST["pages"],$_POST["cover"],$_POST["g0"],$_POST["g1"],
                 	$_POST["g2"],$_POST["info"]);
-                $data['message']= 'Successfully added '.$POST_["title"].' to database!!';
+                $data['message']= 'Successfully added '.$_POST["title"].' to database!!';
+                $this->load->view('admin_panel',$data);
+            }
+        
+        }
+    public function add_author()
+        {
+            $data['user'] = $this->books_model->check_author($_POST["name"]);
+            if (count($data['user'])!=0)
+            {
+                $data['message'] = 'Author with this name already exists';
+                $this->load->view('admin_panel',$data);
+            }
+            else
+            {
+                $this->books_model->add_author_to_db($_POST["name"],$_POST["bp"],$_POST["bd"],
+                	$_POST["died"],$_POST["cover"],$_POST["info"]);
+                $data['message']= 'Successfully added '.$_POST["name"].' to database!!';
                 $this->load->view('admin_panel',$data);
             }
         
