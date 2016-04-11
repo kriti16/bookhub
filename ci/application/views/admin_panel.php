@@ -74,7 +74,8 @@ $name = ($this->session->userdata['logged_in']['name']);
     	<li class="active"><a data-toggle="tab" href="#book">Add Book</a></li>
     	<li><a data-toggle="tab" href="#author">Add Author</a></li>
     	<li><a data-toggle="tab" href="#admin">Add Admin</a></li>
-    	<!-- <li><a data-toggle="tab" href="#menu3">Menu 3</a></li> -->
+    	<li><a data-toggle="tab" href="#update">Update Book</a></li>
+    	<li><a data-toggle="tab" href="#update">Update Author</a></li>
     	<li><a href="<?php echo base_url();?>index.php/user_auth/logout">Logout</a></li>
   	</ul>
 

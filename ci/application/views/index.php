@@ -75,7 +75,7 @@ $name = ($this->session->userdata['logged_in']['name']);
                           <a href="" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                   <li><a href="<?php echo base_url();?>index.php/home/genre/Art">Art</a></li>
-                                  <li><a href="<?php echo base_url();?>index.php/home/genre/Crime">Crime</a></li>
+                                  <li><a href="<?php echo base_url();?>index.php/home/genre/Crime">Crime</a></li>                                  
                                   <li><a href="<?php echo base_url();?>index.php/home/genre/Classics">Classics</a></li>
                                   <li><a href="<?php echo base_url();?>index.php/home/genre/Comedy">Comedy</a></li>
                                   <li><a href="<?php echo base_url();?>index.php/home/genre/Fantasy">Fantasy</a></li>
@@ -84,6 +84,7 @@ $name = ($this->session->userdata['logged_in']['name']);
                                   <li><a href="<?php echo base_url();?>index.php/home/genre/Horror">Horror</a></li>
                                   <li><a href="<?php echo base_url();?>index.php/home/genre/Mystery">Mystery</a></li>
                                   <li><a href="<?php echo base_url();?>index.php/home/genre/Non-Fiction">Non-Fiction</a></li>
+                                  <li><a href="<?php echo base_url();?>index.php/home/genre/Romance">Romance</a></li>
                                   <li><a href="<?php echo base_url();?>index.php/home/genre/Sci_Fi">Sci-Fi</a></li>
                                   <li><a href="<?php echo base_url();?>index.php/home/genre/Thriller">Thriller</a></li>
                             </ul>
@@ -226,7 +227,7 @@ $name = ($this->session->userdata['logged_in']['name']);
   ==============================================-->
 
 
-  <div class="row feature-box">
+ <!--  <div class="row feature-box">
       <div class="span12 cnt-title">
        <h1>Trending Right Now!</h1> 
         <span>Unable to choose a book to read? Pick one from the books trending this week.</span>        
@@ -234,7 +235,7 @@ $name = ($this->session->userdata['logged_in']['name']);
 
       <div class="span4">
         <a href="<?php echo base_url();?>index.php/home/book_info/62409859"><img src="<?php echo base_url();?>assets/img/1.jpg"></a>
-        <!--<h2>Feature A</h2>-->
+        
         <p>
             Book description comes here
         </p>
@@ -245,7 +246,7 @@ $name = ($this->session->userdata['logged_in']['name']);
 
       <div class="span4">
         <a href="#"><img src="<?php echo base_url();?>assets/img/2.jpg"></a>
-        <!--<h2>Feature B</h2>-->
+        
         <p>
             Book description comes here
         </p>   
@@ -254,18 +255,18 @@ $name = ($this->session->userdata['logged_in']['name']);
 
       <div class="span4">
         <a href="#"><img src="<?php echo base_url();?>assets/img/3.jpg"></a>
-        <!--<h2>Feature C</h2>-->
+        
         <p>
             Book description comes here 
         </p>
           <a href="<?php echo base_url().'index.php/home/book_info/2247410';?>">View Book &rarr;</a>
       </div>
   </div>
-
+ -->
 <!--Footer
 ==========================-->
 
-<footer>
+ <footer>
     <div class="container">
       <div class="row">
         <div class="span6">Copyright &copy 2013 Shapebootstrap | All Rights Reserved  <br>
@@ -282,7 +283,7 @@ $name = ($this->session->userdata['logged_in']['name']);
         </div>
       </div>
     </div>
-</footer>
+</footer> 
 
 <!--/.Footer-->
 

@@ -59,7 +59,7 @@ $name = ($this->session->userdata['logged_in']['name']);
                     <div class="nav-collapse collapse navbar-responsive-collapse ">
                     <ul class="nav">
                         <!-- <li class="active"><a href="index.html">Home</a></li> -->
-                        <li><a href="service.html">My Books</a></li>
+                        <li><a href="<?php echo base_url().'index.php/home/user_books/'.$username;?>">My Books</a></li>
                         <li class="dropdown">
                           <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
                             <ul class="dropdown-menu">
