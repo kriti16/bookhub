@@ -114,6 +114,19 @@ class Books_model extends CI_Model {
              );
             $this->db->insert("users",$data);
         }
+        public function add_admin_to_db($fullname,$username,$password)
+        {
+            if ($username === FALSE)
+            {
+                return NULL;
+            }
+            $data = array(
+                'full_name' => $fullname ,
+                'username' => $username ,
+                'password' => $password
+             );
+            $this->db->insert("admins",$data);
+        }
         public function check_user($username)
         {
             if ($username === FALSE)
@@ -122,6 +135,18 @@ class Books_model extends CI_Model {
             }
             $this->db->select("*");
             $this->db->from("users");
+            $this->db->where('username',($username));
+            $query = $this->db->get();
+            return $query->result_array();
+        }
+        public function check_admin($username)
+        {
+            if ($username === FALSE)
+            {
+                return NULL;
+            }
+            $this->db->select("*");
+            $this->db->from("admins");
             $this->db->where('username',($username));
             $query = $this->db->get();
             return $query->result_array();
