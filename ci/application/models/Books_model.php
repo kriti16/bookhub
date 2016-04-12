@@ -163,6 +163,24 @@ class Books_model extends CI_Model {
              );
             $this->db->insert("admins",$data);
         }
+        public function delete_book($isbn)
+        {
+            
+            $this->db->select("*");
+            $this->db->from("bookdetails");
+            $this->db->where('isbn',($isbn));
+            $query = $this->db->delete();
+           
+        }
+        public function delete_author($name)
+        {
+          
+            $this->db->select("*");
+            $this->db->from("authordetails");
+            $this->db->where('name',($name));
+            $query = $this->db->delete();
+            
+        }
         public function check_user($username)
         {
             if ($username === FALSE)

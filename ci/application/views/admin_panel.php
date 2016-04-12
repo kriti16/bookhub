@@ -446,7 +446,7 @@ $name = ($this->session->userdata['logged_in']['name']);
 	            <div class="row">
 	                <div class="col-sm-12 msf-form">
 	                    
-	                    <form role="form" action="<?php echo base_url()?>index.php/admin_power/add_admin" method="post" class="form-inline">	                    	
+	                    <form role="form" action="<?php echo base_url()?>index.php/admin_power/delete" method="post" class="form-inline">	                    	
 	                    	<fieldset>
 	            				<h4>Fill the entries you want to delete </h4>
 	            				<div class="form-group">
@@ -460,7 +460,8 @@ $name = ($this->session->userdata['logged_in']['name']);
 				                
 	            				<br>
 	            				<!-- <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button> -->
-	            				<button type="button" class="btn btn-next">Delete <i class="fa fa-angle-right"></i></button>
+	            				
+	            				<button type="submit" class="btn">Delete</button>
 	            			</fieldset>          		          			
 	                    	
 	                    </form>

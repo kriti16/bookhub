@@ -62,4 +62,21 @@ class Admin_power extends CI_Controller {
             }
         
         }
+    public function delete()
+        {
+        	$data['message']='';
+            if($_POST["isbn"]!='')
+            {
+            	$this->books_model->delete_book($_POST["isbn"]);
+            	$data['message']= 'Successfully deleted book with isbn :'.$_POST["isbn"];
+            }
+
+            if($_POST["name"]!='')
+            {
+            	$this->books_model->delete_author($_POST["name"]);	
+            	$data['message']= $data['message'].'Successfully deleted '.$_POST["name"].' from database';
+            }   
+            $this->load->view('admin_panel',$data);        
+        
+        }
 }
