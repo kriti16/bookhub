@@ -173,7 +173,7 @@ $name = ($this->session->userdata['logged_in']['name']);
                                         <a href="<?php echo base_url().'index.php/home/author_info/'.$book_item['author'];?>"><?php echo 'Author : '.$book_item['author'];?></a>
                                         </p>
                                         <p>
-					<a href="<?php echo base_url().'index.php/home/book_info/'.$book_item['isbn'];?>" class="btn" type="button">View book</a>
+					<a href="<?php echo base_url().'index.php/home/book_info/'.$book_item['isbn'];?>" target="_blank" class="btn" type="button">View book</a>
                                         </p>
 				</div>
                             </div>			

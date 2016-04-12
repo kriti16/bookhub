@@ -168,7 +168,7 @@ $name = ($this->session->userdata['logged_in']['name']);
                     </p>
                     
                     <p>
-                        Author: <a href="<?php echo base_url().'index.php/home/author_info/'.$bookinfo[0]['author'];?>"><?php echo $bookinfo[0]['author'];?>
+                        Author: <a href="<?php echo base_url();?>index.php/home/author_info/<?php echo $bookinfo[0]['author'];?>"><?php echo $bookinfo[0]['author'];?>
                         </a>
                     </p>
                     </div>

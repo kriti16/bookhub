@@ -53,8 +53,11 @@ class Home extends CI_Controller {
         public function book_info_name()
     {
                 $data['bookinfo'] = $this->books_model->get_book_info_name($_POST["srch-term"]);
+                // if(isset($_POST["srch-term"])) {
+                //     redirect(base_url().'index.php/home/book_info_name/','refresh');
+                // }
 //                $data['genre'] = $genre;
-        $this->load->view('search_results',$data);
+                $this->load->view('search_results',$data);
 //                echo implode(" ",$data['bookinfo'][0]);
     }
         

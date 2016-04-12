@@ -150,9 +150,7 @@ $name = ($this->session->userdata['logged_in']['name']);
                                     Books you are currently reading
                                 </h2>
                             </li>    
-                        <li>
-                            <a href=""  type="button"> Add more </a>
-                        </li>
+                        
                         </ul>
             <?php $i=0;?>           
             <?php foreach ($currbooks as $book_item): ?>
@@ -190,7 +188,6 @@ $name = ($this->session->userdata['logged_in']['name']);
                                 </h2>
                             
                         
-                            <a href=""  type="button"> Add more </a>
                         
                         
             <?php $i=0;?>           
@@ -230,9 +227,7 @@ $name = ($this->session->userdata['logged_in']['name']);
                                     Books you read
                                 </h2>
                             </li>    
-                        <li>
-                            <a href=""  type="button"> Add more </a>
-                        </li>
+                        
                         </ul>
             <?php $i=0;?>           
             <?php foreach ($prevbooks as $book_item): ?>
