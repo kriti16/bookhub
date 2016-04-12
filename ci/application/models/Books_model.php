@@ -134,7 +134,59 @@ class Books_model extends CI_Model {
              );
             $this->db->insert("bookdetails",$data);
         }
-        public function add_author_to_db($name,$db,$bp,$died,$cover,$info)
+        public function update_book($isbn,$title,$author,$rating,$pages,$cover,$g0,$info)
+        {
+            
+            // $msg = '';
+            if ($isbn === FALSE)
+            {
+                return NULL;
+            }
+            else
+            {                
+                $this->db->where('isbn', $isbn);
+            }
+            if(!$title===FALSE)
+            {
+                $data['title']=$title;
+                // $msg=$msg.'l';
+            }
+            if(!$author===FALSE)
+            {
+               
+                $data['author']=$author;
+                // $msg=$msg.'l';
+            }
+            if(!$rating===FALSE)
+            {
+                $data['rating']=$rating;
+                // $msg=$msg.'l';
+            }
+            if(!$pages===FALSE)
+            {
+                $data['numpages']=$pages;
+                // $msg=$msg.'l';
+            }
+            if(!$cover===FALSE)
+            {
+                $data['coverimagepath']=$cover;                
+                // $msg=$msg.'l';
+            }
+            if(!$g0===FALSE)
+            {
+                $data['genre0']=$g0;                
+                // $msg=$msg.'l';
+            }
+            if(!$info===FALSE)
+            {
+                $data['intro']=$info;
+                // $msg=$msg.'l';
+            }            
+            $this->db->update("bookdetails",$data);
+
+            // return $data;
+        }
+        public function add_author_to_db($name,$bp,$bd,$died,$cover,$info)
         {
             if ($name === FALSE)
             {
@@ -142,7 +194,7 @@ class Books_model extends CI_Model {
             }
             $data = array(
                 'name' => $name ,
-                'birth_date' => $db ,
+                'birth_date' => $bd,
                 'birth_place' => $bp,
                 'died' => $died ,
                 'coverimagepath' => $cover ,
@@ -150,6 +202,50 @@ class Books_model extends CI_Model {
              );
             $this->db->insert("authordetails",$data);
         }
+        public function update_author($name,$bp,$bd,$died,$cover,$info)
+        {
+            
+            // $msg = '';
+            if ($name === FALSE)
+            {
+                return NULL;
+            }
+            else
+            {
+                
+                $this->db->where('name', $name);
+            }
+            if(!$bd===FALSE)
+            {
+                $data['birth_date']=$bd;
+                // $msg=$msg.'l';
+            }
+            if(!$bp===FALSE)
+            {
+               
+                $data['birth_place']=$bp;
+                // $msg=$msg.'l';
+            }
+            if(!$died===FALSE)
+            {
+                $data['died']=$died;
+                // $msg=$msg.'l';
+            }
+            if(!$cover===FALSE)
+            {
+                $data['coverimagepath']=$cover;                
+                // $msg=$msg.'l';
+            }
+            if(!$info===FALSE)
+            {
+                $data['intro']=$info;
+                // $msg=$msg.'l';
+            }            
+            $this->db->update("authordetails",$data);
+
+            // return $data;
+        }
+
         public function add_admin_to_db($fullname,$username,$password)
         {
             if ($username === FALSE)

@@ -62,19 +62,69 @@ class Admin_power extends CI_Controller {
             }
         
         }
+        public function update_author()
+        {
+            $data['user'] = $this->books_model->check_author($_POST["name"]);
+            if (count($data['user'])==0)
+            {
+                $data['message'] = "Author with this name doesn't exist";
+                $this->load->view('admin_panel',$data);
+            }
+            else
+            {
+                $this->books_model->update_author($_POST["name"],$_POST["bp"],$_POST["bd"],
+                	$_POST["died"],$_POST["cover"],$_POST["info"]);
+                $data['message']= 'Successfully updated '.$_POST["name"].'!!';
+                $this->load->view('admin_panel',$data);
+            }
+        
+        }
+        public function update_book()
+        {
+            $data['user'] = $this->books_model->check_book($_POST["isbn"]);
+            if (count($data['user'])==0)
+            {
+                $data['message'] = "No book with this isbn exists";
+                $this->load->view('admin_panel',$data);
+            }
+            else
+            {
+                $this->books_model->update_book($_POST["isbn"],$_POST["title"],$_POST["author"],
+                	$_POST["rating"],$_POST["pages"],$_POST["cover"],$_POST["g0"],$_POST["info"]);
+                $data['message']= 'Successfully updated the book with isbn : '.$_POST["isbn"].'!!';
+                $this->load->view('admin_panel',$data);
+            }
+        
+        }
     public function delete()
         {
         	$data['message']='';
             if($_POST["isbn"]!='')
             {
-            	$this->books_model->delete_book($_POST["isbn"]);
-            	$data['message']= 'Successfully deleted book with isbn :'.$_POST["isbn"];
+            	$data['user'] = $this->books_model->check_book($_POST["isbn"]);
+	            if (count($data['user'])==0)
+	            {
+	                $data['message'] = 'Book not present in database';	                
+	            }
+	            else{
+	            	$this->books_model->delete_book($_POST["isbn"]);
+	            	$data['message']= 'Successfully deleted book with isbn :'.$_POST["isbn"];
+	            }
             }
+
 
             if($_POST["name"]!='')
             {
-            	$this->books_model->delete_author($_POST["name"]);	
-            	$data['message']= $data['message'].'Successfully deleted '.$_POST["name"].' from database';
+            	$data['user'] = $this->books_model->check_author($_POST["name"]);
+	            if (count($data['user'])==0)
+	            {
+	                $data['message'] = $data['message']."Author with this name doesn't exist";
+	                
+	            }
+	            else{
+	            	$this->books_model->delete_author($_POST["name"]);	
+	            	$data['message']= $data['message'].'Successfully deleted '.$_POST["name"].' from database';
+	            }
             }   
             $this->load->view('admin_panel',$data);        
         

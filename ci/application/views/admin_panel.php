@@ -310,7 +310,7 @@ $name = ($this->session->userdata['logged_in']['name']);
 	            <div class="row">
 	                <div class="col-sm-12 msf-form">
 	                    
-	                    <form role="form" action="<?php echo base_url()?>index.php/admin_power/add_admin" method="post" class="form-inline">	                    	
+	                    <form role="form" action="<?php echo base_url()?>index.php/admin_power/update_book" method="post" class="form-inline">	                    	
 	                    	<fieldset>
 	            				<h4>Fill the entries you want to update </h4>
 	            				<div class="form-group">
@@ -331,7 +331,7 @@ $name = ($this->session->userdata['logged_in']['name']);
 				                </div>
 				                <div class="form-group">
 				                    <label for="telephone">Intro:</label><br>
-				                    <input type="text" name="intro" class="telephone form-control" id="telephone">
+				                    <input type="text" name="info" class="telephone form-control" id="telephone">
 				                </div>
 				                <div class="form-group">
 				                    <label for="mobile-phone">Pages:</label><br>
@@ -347,7 +347,7 @@ $name = ($this->session->userdata['logged_in']['name']);
 				                </div>
 	            				<br>
 	            				<!-- <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button> -->
-	            				<button type="button" class="btn btn-next">Update <i class="fa fa-angle-right"></i></button>
+	            				<button type="submit" class="btn">Update</button>
 	            			</fieldset>        		          			
 	                    	
 	                    </form>
@@ -380,28 +380,28 @@ $name = ($this->session->userdata['logged_in']['name']);
 	            <div class="row">
 	                <div class="col-sm-12 msf-form">
 	                    
-	                    <form role="form" action="<?php echo base_url()?>index.php/admin_power/add_admin" method="post" class="form-inline">	                    	
+	                    <form role="form" action="<?php echo base_url()?>index.php/admin_power/update_author" method="post" class="form-inline">	                    	
 	                    	<fieldset>
 	            				<h4>Fill the entries you want to update </h4>
 	            				<div class="form-group">
 				                    <label for="address">Name:</label><br>
-				                    <input type="text" name="isbn" class="address form-control" id="address" value="Compulsory to fill">
+				                    <input type="text" name="name" class="address form-control" id="address" value="Compulsory to fill">
 				                </div>
 				                <div class="form-group">
 				                    <label for="address-city">Birth Place:</label><br>
-				                    <input type="text" name="title" class="address-city form-control" id="address-city">
+				                    <input type="text" name="bp" class="address-city form-control" id="address-city">
 				                </div>
 				                <div class="form-group">
 				                    <label for="address-state">Birth Date:</label><br>
-				                    <input type="text" name="author" class="address-state form-control" id="address-state">
+				                    <input type="text" name="bd" class="address-state form-control" id="address-state">
 				                </div>				                
 				                <div class="form-group">
 				                    <label for="address-postal-code">Died On:</label><br>
-				                    <input type="text" name="rating" class="address-postal-code form-control" id="address-postal-code">
+				                    <input type="text" name="died" class="address-postal-code form-control" id="address-postal-code">
 				                </div>
 				                <div class="form-group">
 				                    <label for="telephone">Intro:</label><br>
-				                    <input type="text" name="intro" class="telephone form-control" id="telephone">
+				                    <input type="text" name="info" class="telephone form-control" id="telephone">
 				                </div>
 				                
 				                <div class="form-group">
@@ -411,7 +411,8 @@ $name = ($this->session->userdata['logged_in']['name']);
 				                
 	            				<br>
 	            				<!-- <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button> -->
-	            				<button type="button" class="btn btn-next">Update <i class="fa fa-angle-right"></i></button>
+	            				
+	            				<button type="submit" class="btn">Update</button>
 	            			</fieldset>          		          			
 	                    	
 	                    </form>
